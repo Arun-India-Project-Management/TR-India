@@ -1,0 +1,25 @@
+2024-08-24 09:15:48.359 +05:30 [WRN] No store type was specified for the decimal property 'ShipmentPrice' on entity type 'PackageShipmentDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-08-24 09:15:48.408 +05:30 [WRN] No store type was specified for the decimal property 'ShipmentWeight' on entity type 'PackageShipmentDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-08-24 10:01:23.246 +05:30 [WRN] No store type was specified for the decimal property 'ShipmentPrice' on entity type 'PackageShipmentDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-08-24 10:01:23.342 +05:30 [WRN] No store type was specified for the decimal property 'ShipmentWeight' on entity type 'PackageShipmentDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-08-24 10:01:25.042 +05:30 [INF] Executed DbCommand (69ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-08-24 10:01:25.628 +05:30 [INF] User profile is available. Using 'C:\Users\hp\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-24 10:01:26.257 +05:30 [INF] Now listening on: https://localhost:7218
+2024-08-24 10:01:26.257 +05:30 [INF] Now listening on: http://localhost:5047
+2024-08-24 10:01:26.572 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-24 10:01:26.573 +05:30 [INF] Hosting environment: Development
+2024-08-24 10:01:26.573 +05:30 [INF] Content root path: C:\Users\hp\source\repos\Annapurnaworld.api\Annapurnaworld.api
+2024-08-24 10:01:27.307 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7218/swagger/index.html - null null
+2024-08-24 10:01:27.721 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7218/swagger/index.html - 200 null text/html;charset=utf-8 422.8506ms
+2024-08-24 10:01:27.736 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7218/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-24 10:01:27.736 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7218/_vs/browserLink - null null
+2024-08-24 10:01:27.751 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7218/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 14.6695ms
+2024-08-24 10:01:27.816 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7218/_vs/browserLink - 200 null text/javascript; charset=UTF-8 79.8767ms
+2024-08-24 10:01:28.047 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7218/swagger/v1/swagger.json - null null
+2024-08-24 10:01:28.287 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7218/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 240.2162ms

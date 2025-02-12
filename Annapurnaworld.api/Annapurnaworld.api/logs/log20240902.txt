@@ -1,0 +1,727 @@
+2024-09-02 06:14:17.182 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-06-01&&toDate=2024-09-26 - null null
+2024-09-02 06:14:17.298 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:17.310 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-06-01&&toDate=2024-09-26 - 204 null null 148.9713ms
+2024-09-02 06:14:17.316 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-06-01&&toDate=2024-09-26 - null null
+2024-09-02 06:14:17.322 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:17.776 +05:30 [ERR] An unhandled exception occurred.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '01-09-2024 08:26:43', Current time (UTC): '02-09-2024 00:44:17'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Annapurnaworld.api.JwtMiddleware.InvokeAsync(HttpContext context, IUserService userService)
+   at Annapurnaworld.api.ApplicationExceptionHandlerMiddleware.InvokeAsync(HttpContext context)
+2024-09-02 06:14:18.277 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-06-01&&toDate=2024-09-26 - 401 null application/json 961.8005ms
+2024-09-02 06:14:19.880 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/accounts/login - null null
+2024-09-02 06:14:19.881 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:19.882 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/accounts/login - 204 null null 0.9048ms
+2024-09-02 06:14:19.889 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5047/api/accounts/login - application/json 42
+2024-09-02 06:14:19.891 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:19.908 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.AccountController.Login (Annapurnaworld.api)'
+2024-09-02 06:14:19.989 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Annapurnaworld.entity.LoginRequest) on controller Annapurnaworld.api.Controllers.AccountController (Annapurnaworld.api).
+2024-09-02 06:14:20.557 +05:30 [INF] Executed DbCommand (106ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Email] = @__email_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 06:14:20.581 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 06:14:21.105 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`5[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-09-02 06:14:21.129 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.AccountController.Login (Annapurnaworld.api) in 1139.9214ms
+2024-09-02 06:14:21.129 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.AccountController.Login (Annapurnaworld.api)'
+2024-09-02 06:14:21.131 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5047/api/accounts/login - 200 null application/json; charset=utf-8 1242.5613ms
+2024-09-02 06:14:21.143 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal?dateRange=2024-09-01T00%3A44%3A21.137Z - null null
+2024-09-02 06:14:21.144 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:21.144 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal?dateRange=2024-09-01T00%3A44%3A21.137Z - 204 null null 1.0301ms
+2024-09-02 06:14:21.148 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal?dateRange=2024-09-01T00%3A44%3A21.137Z - null null
+2024-09-02 06:14:21.149 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:21.152 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered?dateRange=2024-09-01T00%3A44%3A21.137Z - null null
+2024-09-02 06:14:21.154 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:21.155 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetailsByAgentWithShipmentStatus?dateRange=2024-09-01T00%3A44%3A21.137Z&deliveryHubName= - null null
+2024-09-02 06:14:21.155 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:21.155 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered?dateRange=2024-09-01T00%3A44%3A21.137Z - 204 null null 4.3186ms
+2024-09-02 06:14:21.155 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetailsByAgentWithShipmentStatus?dateRange=2024-09-01T00%3A44%3A21.137Z&deliveryHubName= - 204 null null 0.6173ms
+2024-09-02 06:14:21.156 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal?dateRange=2024-09-01T00%3A44%3A21.137Z - null null
+2024-09-02 06:14:21.156 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:21.156 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal?dateRange=2024-09-01T00%3A44%3A21.137Z - 204 null null 0.6178ms
+2024-09-02 06:14:21.157 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet?dateRange=2024-09-01T00%3A44%3A21.137Z - null null
+2024-09-02 06:14:21.158 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:21.162 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet?dateRange=2024-09-01T00%3A44%3A21.137Z - 204 null null 5.3877ms
+2024-09-02 06:14:21.167 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered?dateRange=2024-09-01T00%3A44%3A21.137Z - null null
+2024-09-02 06:14:21.167 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetailsByAgentWithShipmentStatus?dateRange=2024-09-01T00%3A44%3A21.137Z&deliveryHubName= - null null
+2024-09-02 06:14:21.168 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal?dateRange=2024-09-01T00%3A44%3A21.137Z - null null
+2024-09-02 06:14:21.168 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:21.168 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:21.168 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:21.169 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet?dateRange=2024-09-01T00%3A44%3A21.137Z - null null
+2024-09-02 06:14:21.170 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:21.188 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetails - null null
+2024-09-02 06:14:21.193 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:21.194 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetails - 204 null null 6.593ms
+2024-09-02 06:14:21.206 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetails - null null
+2024-09-02 06:14:21.207 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:21.220 +05:30 [INF] Executed DbCommand (25ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 06:14:21.243 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 06:14:21.258 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 06:14:21.265 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 06:14:21.268 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal (Annapurnaworld.api)'
+2024-09-02 06:14:21.268 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet (Annapurnaworld.api)'
+2024-09-02 06:14:21.270 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 06:14:21.270 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 06:14:21.276 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 06:14:21.278 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered (Annapurnaworld.api)'
+2024-09-02 06:14:21.285 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 06:14:21.285 +05:30 [INF] Route matched with {action = "GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal(System.DateTime) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 06:14:21.285 +05:30 [INF] Route matched with {action = "GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet(System.DateTime) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 06:14:21.285 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 06:14:21.285 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 06:14:21.286 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal (Annapurnaworld.api)'
+2024-09-02 06:14:21.290 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 06:14:21.290 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 06:14:21.291 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetPackageShipmentDetailsByAgentWithShipmentStatus (Annapurnaworld.api)'
+2024-09-02 06:14:21.291 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetPackageShipmentDetails (Annapurnaworld.api)'
+2024-09-02 06:14:21.291 +05:30 [INF] Route matched with {action = "GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered(System.DateTime) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 06:14:21.294 +05:30 [INF] Route matched with {action = "GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal(System.DateTime) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 06:14:21.296 +05:30 [INF] Route matched with {action = "GetPackageShipmentDetails", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPackageShipmentDetails() on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 06:14:21.298 +05:30 [INF] Route matched with {action = "GetPackageShipmentDetailsByAgentWithShipmentStatus", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPackageShipmentDetailsByAgentWithShipmentStatus(System.DateTime, System.String) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 06:14:21.300 +05:30 [INF] Start : GetPackageShipmentDetails
+2024-09-02 06:14:21.303 +05:30 [INF] Start : GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered
+2024-09-02 06:14:21.303 +05:30 [INF] Start : GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet
+2024-09-02 06:14:21.303 +05:30 [INF] Start : GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal
+2024-09-02 06:14:21.303 +05:30 [INF] Start : GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal
+2024-09-02 06:14:21.304 +05:30 [INF] Start : GetPackageShipmentDetailsByAgentWithShipmentStatus
+2024-09-02 06:14:21.369 +05:30 [INF] End : GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered
+2024-09-02 06:14:21.369 +05:30 [INF] End : GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet
+2024-09-02 06:14:21.369 +05:30 [INF] End : GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal
+2024-09-02 06:14:21.369 +05:30 [INF] End : GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal
+2024-09-02 06:14:21.369 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Int32'.
+2024-09-02 06:14:21.369 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Int32'.
+2024-09-02 06:14:21.369 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Int32'.
+2024-09-02 06:14:21.369 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Int32'.
+2024-09-02 06:14:21.375 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet (Annapurnaworld.api) in 89.8681ms
+2024-09-02 06:14:21.375 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered (Annapurnaworld.api) in 83.9ms
+2024-09-02 06:14:21.375 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet (Annapurnaworld.api)'
+2024-09-02 06:14:21.375 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal (Annapurnaworld.api) in 81.0159ms
+2024-09-02 06:14:21.375 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal (Annapurnaworld.api) in 89.9246ms
+2024-09-02 06:14:21.376 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered (Annapurnaworld.api)'
+2024-09-02 06:14:21.376 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal (Annapurnaworld.api)'
+2024-09-02 06:14:21.376 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal (Annapurnaworld.api)'
+2024-09-02 06:14:21.376 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet?dateRange=2024-09-01T00%3A44%3A21.137Z - 200 null application/json; charset=utf-8 207.1181ms
+2024-09-02 06:14:21.377 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal?dateRange=2024-09-01T00%3A44%3A21.137Z - 200 null application/json; charset=utf-8 229.3505ms
+2024-09-02 06:14:21.377 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered?dateRange=2024-09-01T00%3A44%3A21.137Z - 200 null application/json; charset=utf-8 209.3286ms
+2024-09-02 06:14:21.377 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal?dateRange=2024-09-01T00%3A44%3A21.137Z - 200 null application/json; charset=utf-8 208.8825ms
+2024-09-02 06:14:21.399 +05:30 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [d].[Id], [d].[Name]
+FROM [DeliveryHubs] AS [d]
+2024-09-02 06:14:21.399 +05:30 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT TOP(1) [o].[KeyId], [o].[FileDate], [o].[FileName], [o].[RecordCount], [o].[SheetType], [o].[Status]
+FROM [OrderShipmentMetaDatas] AS [o]
+ORDER BY [o].[FileDate] DESC
+2024-09-02 06:14:21.699 +05:30 [INF] End : GetPackageShipmentDetailsByAgentWithShipmentStatus
+2024-09-02 06:14:21.700 +05:30 [INF] Executing OkObjectResult, writing value of type 'Annapurnaworld.entity.PackageShipmentHubResponse'.
+2024-09-02 06:14:21.730 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetPackageShipmentDetailsByAgentWithShipmentStatus (Annapurnaworld.api) in 431.3999ms
+2024-09-02 06:14:21.730 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetPackageShipmentDetailsByAgentWithShipmentStatus (Annapurnaworld.api)'
+2024-09-02 06:14:21.730 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetailsByAgentWithShipmentStatus?dateRange=2024-09-01T00%3A44%3A21.137Z&deliveryHubName= - 200 null application/json; charset=utf-8 563.2095ms
+2024-09-02 06:14:24.718 +05:30 [INF] End : GetPackageShipmentDetails
+2024-09-02 06:14:24.719 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Annapurnaworld.entity.PackageShipmentDetails, Annapurnaworld.entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-02 06:14:25.075 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetPackageShipmentDetails (Annapurnaworld.api) in 3778.1715ms
+2024-09-02 06:14:25.075 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetPackageShipmentDetails (Annapurnaworld.api)'
+2024-09-02 06:14:25.076 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetails - 200 null application/json; charset=utf-8 3869.3174ms
+2024-09-02 06:14:29.996 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-08-08&&toDate=2024-09-26 - null null
+2024-09-02 06:14:29.996 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:29.997 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-08-08&&toDate=2024-09-26 - 204 null null 1.0825ms
+2024-09-02 06:14:29.999 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-08-08&&toDate=2024-09-26 - null null
+2024-09-02 06:14:30.000 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:14:30.008 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 06:14:30.011 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 06:14:30.012 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip (Annapurnaworld.api)'
+2024-09-02 06:14:30.020 +05:30 [INF] Route matched with {action = "DownloadZip", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DownloadZip(System.String, System.DateTime, System.DateTime) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 06:20:08.192 +05:30 [WRN] No store type was specified for the decimal property 'ShipmentPrice' on entity type 'PackageShipmentDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-02 06:20:08.284 +05:30 [WRN] No store type was specified for the decimal property 'ShipmentWeight' on entity type 'PackageShipmentDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-02 06:20:09.818 +05:30 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-09-02 06:20:10.360 +05:30 [INF] User profile is available. Using 'C:\Users\hp\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-02 06:20:11.182 +05:30 [INF] Now listening on: http://localhost:5047
+2024-09-02 06:20:11.302 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-02 06:20:11.302 +05:30 [INF] Hosting environment: Development
+2024-09-02 06:20:11.303 +05:30 [INF] Content root path: C:\Users\hp\source\repos\Annapurnaworld.api\Annapurnaworld.api
+2024-09-02 06:20:11.861 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/index.html - null null
+2024-09-02 06:20:12.277 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/index.html - 200 null text/html;charset=utf-8 427.5959ms
+2024-09-02 06:20:12.290 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-02 06:20:12.295 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/_vs/browserLink - null null
+2024-09-02 06:20:12.296 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 5.6656ms
+2024-09-02 06:20:12.342 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.5926ms
+2024-09-02 06:20:12.423 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - null null
+2024-09-02 06:20:12.579 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 155.3917ms
+2024-09-02 06:20:16.884 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-08-08&&toDate=2024-09-26 - null null
+2024-09-02 06:20:16.894 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:20:16.897 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-08-08&&toDate=2024-09-26 - 204 null null 13.2206ms
+2024-09-02 06:20:16.900 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-08-08&&toDate=2024-09-26 - null null
+2024-09-02 06:20:16.901 +05:30 [INF] CORS policy execution successful.
+2024-09-02 06:20:17.634 +05:30 [INF] Executed DbCommand (69ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 06:20:17.891 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 06:20:17.933 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip (Annapurnaworld.api)'
+2024-09-02 06:20:17.978 +05:30 [INF] Route matched with {action = "DownloadZip", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DownloadZip(System.String, System.DateTime, System.DateTime) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 06:20:36.503 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/index.html - null null
+2024-09-02 06:20:36.516 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/index.html - 200 null text/html;charset=utf-8 12.3134ms
+2024-09-02 06:20:36.558 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-02 06:20:36.558 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/_vs/browserLink - null null
+2024-09-02 06:20:36.559 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 3.4072ms
+2024-09-02 06:20:36.592 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.6329ms
+2024-09-02 06:20:36.685 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - null null
+2024-09-02 06:20:36.704 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 18.8719ms
+2024-09-02 11:42:43.953 +05:30 [WRN] No store type was specified for the decimal property 'ShipmentPrice' on entity type 'PackageShipmentDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-02 11:42:44.014 +05:30 [WRN] No store type was specified for the decimal property 'ShipmentWeight' on entity type 'PackageShipmentDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-02 11:42:45.003 +05:30 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-09-02 11:42:45.270 +05:30 [INF] User profile is available. Using 'C:\Users\hp\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-02 11:42:45.560 +05:30 [INF] Now listening on: http://localhost:5047
+2024-09-02 11:42:45.645 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-02 11:42:45.646 +05:30 [INF] Hosting environment: Development
+2024-09-02 11:42:45.646 +05:30 [INF] Content root path: C:\Users\hp\source\repos\Annapurnaworld.api\Annapurnaworld.api
+2024-09-02 11:42:46.179 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/index.html - null null
+2024-09-02 11:42:46.569 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/index.html - 200 null text/html;charset=utf-8 412.0226ms
+2024-09-02 11:42:46.583 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-02 11:42:46.583 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/_vs/browserLink - null null
+2024-09-02 11:42:46.589 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 5.6498ms
+2024-09-02 11:42:46.639 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/_vs/browserLink - 200 null text/javascript; charset=UTF-8 56.7726ms
+2024-09-02 11:42:46.742 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - null null
+2024-09-02 11:42:46.931 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 189.316ms
+2024-09-02 11:43:02.859 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-08-08&&toDate=2024-09-26 - null null
+2024-09-02 11:43:02.877 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:02.879 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-08-08&&toDate=2024-09-26 - 204 null null 20.6558ms
+2024-09-02 11:43:02.882 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-08-08&&toDate=2024-09-26 - null null
+2024-09-02 11:43:02.883 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:03.354 +05:30 [ERR] An unhandled exception occurred.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '02-09-2024 02:44:21', Current time (UTC): '02-09-2024 06:13:03'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Annapurnaworld.api.JwtMiddleware.InvokeAsync(HttpContext context, IUserService userService) in C:\Users\hp\source\repos\Annapurnaworld.api\Annapurnaworld.api\middlewares\JwtMiddleware.cs:line 68
+   at Annapurnaworld.api.ApplicationExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\hp\source\repos\Annapurnaworld.api\Annapurnaworld.api\middlewares\ApplicationExceptionHandlerMiddleware.cs:line 33
+2024-09-02 11:43:03.452 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-08-08&&toDate=2024-09-26 - 401 null application/json 570.3931ms
+2024-09-02 11:43:05.360 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/accounts/login - null null
+2024-09-02 11:43:05.361 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:05.361 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/accounts/login - 204 null null 0.847ms
+2024-09-02 11:43:05.364 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5047/api/accounts/login - application/json 42
+2024-09-02 11:43:05.364 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:05.379 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.AccountController.Login (Annapurnaworld.api)'
+2024-09-02 11:43:05.434 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Annapurnaworld.entity.LoginRequest) on controller Annapurnaworld.api.Controllers.AccountController (Annapurnaworld.api).
+2024-09-02 11:43:05.941 +05:30 [INF] Executed DbCommand (119ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Email] = @__email_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 11:43:06.183 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 11:43:06.579 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`5[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-09-02 11:43:06.594 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.AccountController.Login (Annapurnaworld.api) in 1153.5159ms
+2024-09-02 11:43:06.595 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.AccountController.Login (Annapurnaworld.api)'
+2024-09-02 11:43:06.604 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5047/api/accounts/login - 200 null application/json; charset=utf-8 1240.3897ms
+2024-09-02 11:43:06.622 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal?dateRange=2024-09-01T06%3A13%3A06.611Z - null null
+2024-09-02 11:43:06.622 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:06.623 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal?dateRange=2024-09-01T06%3A13%3A06.611Z - 204 null null 1.2735ms
+2024-09-02 11:43:06.628 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered?dateRange=2024-09-01T06%3A13%3A06.611Z - null null
+2024-09-02 11:43:06.629 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:06.630 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered?dateRange=2024-09-01T06%3A13%3A06.611Z - 204 null null 2.1208ms
+2024-09-02 11:43:06.640 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal?dateRange=2024-09-01T06%3A13%3A06.611Z - null null
+2024-09-02 11:43:06.642 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal?dateRange=2024-09-01T06%3A13%3A06.611Z - null null
+2024-09-02 11:43:06.642 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet?dateRange=2024-09-01T06%3A13%3A06.611Z - null null
+2024-09-02 11:43:06.643 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetails - null null
+2024-09-02 11:43:06.643 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:06.645 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:06.645 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:06.645 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:06.646 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal?dateRange=2024-09-01T06%3A13%3A06.611Z - 204 null null 10.2532ms
+2024-09-02 11:43:06.646 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet?dateRange=2024-09-01T06%3A13%3A06.611Z - 204 null null 3.3038ms
+2024-09-02 11:43:06.646 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetails - 204 null null 3.1259ms
+2024-09-02 11:43:06.646 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered?dateRange=2024-09-01T06%3A13%3A06.611Z - null null
+2024-09-02 11:43:06.646 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:06.646 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetailsByAgentWithShipmentStatus?dateRange=2024-09-01T06%3A13%3A06.611Z&deliveryHubName= - null null
+2024-09-02 11:43:06.648 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:06.649 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetailsByAgentWithShipmentStatus?dateRange=2024-09-01T06%3A13%3A06.611Z&deliveryHubName= - 204 null null 2.936ms
+2024-09-02 11:43:06.654 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal?dateRange=2024-09-01T06%3A13%3A06.611Z - null null
+2024-09-02 11:43:06.655 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetails - null null
+2024-09-02 11:43:06.655 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:06.655 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:06.660 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet?dateRange=2024-09-01T06%3A13%3A06.611Z - null null
+2024-09-02 11:43:06.661 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:06.661 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetailsByAgentWithShipmentStatus?dateRange=2024-09-01T06%3A13%3A06.611Z&deliveryHubName= - null null
+2024-09-02 11:43:06.662 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:06.861 +05:30 [INF] Executed DbCommand (48ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 11:43:06.879 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 11:43:06.897 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 11:43:06.898 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 11:43:06.919 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 11:43:06.919 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 11:43:06.930 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 11:43:06.934 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 11:43:06.936 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 11:43:06.936 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 11:43:06.939 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 11:43:06.939 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 11:43:06.943 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetPackageShipmentDetailsByAgentWithShipmentStatus (Annapurnaworld.api)'
+2024-09-02 11:43:06.943 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered (Annapurnaworld.api)'
+2024-09-02 11:43:06.943 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetPackageShipmentDetails (Annapurnaworld.api)'
+2024-09-02 11:43:06.943 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal (Annapurnaworld.api)'
+2024-09-02 11:43:06.943 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal (Annapurnaworld.api)'
+2024-09-02 11:43:06.943 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet (Annapurnaworld.api)'
+2024-09-02 11:43:06.949 +05:30 [INF] Route matched with {action = "GetPackageShipmentDetails", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPackageShipmentDetails() on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 11:43:06.952 +05:30 [INF] Route matched with {action = "GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet(System.DateTime) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 11:43:06.952 +05:30 [INF] Route matched with {action = "GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal(System.DateTime) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 11:43:06.952 +05:30 [INF] Start : GetPackageShipmentDetails
+2024-09-02 11:43:06.952 +05:30 [INF] Route matched with {action = "GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered(System.DateTime) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 11:43:06.952 +05:30 [INF] Route matched with {action = "GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal(System.DateTime) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 11:43:06.952 +05:30 [INF] Route matched with {action = "GetPackageShipmentDetailsByAgentWithShipmentStatus", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPackageShipmentDetailsByAgentWithShipmentStatus(System.DateTime, System.String) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 11:43:06.968 +05:30 [INF] Start : GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered
+2024-09-02 11:43:06.968 +05:30 [INF] Start : GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal
+2024-09-02 11:43:06.968 +05:30 [INF] Start : GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal
+2024-09-02 11:43:06.968 +05:30 [INF] Start : GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet
+2024-09-02 11:43:06.969 +05:30 [INF] Start : GetPackageShipmentDetailsByAgentWithShipmentStatus
+2024-09-02 11:43:07.009 +05:30 [INF] End : GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered
+2024-09-02 11:43:07.009 +05:30 [INF] End : GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal
+2024-09-02 11:43:07.009 +05:30 [INF] End : GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet
+2024-09-02 11:43:07.009 +05:30 [INF] End : GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal
+2024-09-02 11:43:07.010 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Int32'.
+2024-09-02 11:43:07.010 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Int32'.
+2024-09-02 11:43:07.010 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Int32'.
+2024-09-02 11:43:07.010 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Int32'.
+2024-09-02 11:43:07.015 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered (Annapurnaworld.api) in 62.0454ms
+2024-09-02 11:43:07.015 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal (Annapurnaworld.api) in 62.1795ms
+2024-09-02 11:43:07.015 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered (Annapurnaworld.api)'
+2024-09-02 11:43:07.015 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet (Annapurnaworld.api) in 62.4628ms
+2024-09-02 11:43:07.015 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal (Annapurnaworld.api) in 61.9664ms
+2024-09-02 11:43:07.015 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal (Annapurnaworld.api)'
+2024-09-02 11:43:07.015 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal (Annapurnaworld.api)'
+2024-09-02 11:43:07.015 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet (Annapurnaworld.api)'
+2024-09-02 11:43:07.016 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetGrandTotal?dateRange=2024-09-01T06%3A13%3A06.611Z - 200 null application/json; charset=utf-8 374.8432ms
+2024-09-02 11:43:07.016 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheetGrandTotal?dateRange=2024-09-01T06%3A13%3A06.611Z - 200 null application/json; charset=utf-8 361.3222ms
+2024-09-02 11:43:07.016 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndRunsheetAndStatusDelivered?dateRange=2024-09-01T06%3A13%3A06.611Z - 200 null application/json; charset=utf-8 369.6186ms
+2024-09-02 11:43:07.016 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetShippmentTotalCountBasedOnDateAndSheetTypePickupSheet?dateRange=2024-09-01T06%3A13%3A06.611Z - 200 null application/json; charset=utf-8 360.9207ms
+2024-09-02 11:43:07.027 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [d].[Id], [d].[Name]
+FROM [DeliveryHubs] AS [d]
+2024-09-02 11:43:07.031 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT TOP(1) [o].[KeyId], [o].[FileDate], [o].[FileName], [o].[RecordCount], [o].[SheetType], [o].[Status]
+FROM [OrderShipmentMetaDatas] AS [o]
+ORDER BY [o].[FileDate] DESC
+2024-09-02 11:43:07.324 +05:30 [INF] End : GetPackageShipmentDetailsByAgentWithShipmentStatus
+2024-09-02 11:43:07.325 +05:30 [INF] Executing OkObjectResult, writing value of type 'Annapurnaworld.entity.PackageShipmentHubResponse'.
+2024-09-02 11:43:07.338 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetPackageShipmentDetailsByAgentWithShipmentStatus (Annapurnaworld.api) in 385.6299ms
+2024-09-02 11:43:07.338 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetPackageShipmentDetailsByAgentWithShipmentStatus (Annapurnaworld.api)'
+2024-09-02 11:43:07.339 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetailsByAgentWithShipmentStatus?dateRange=2024-09-01T06%3A13%3A06.611Z&deliveryHubName= - 200 null application/json; charset=utf-8 678.2697ms
+2024-09-02 11:43:11.228 +05:30 [INF] End : GetPackageShipmentDetails
+2024-09-02 11:43:11.229 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Annapurnaworld.entity.PackageShipmentDetails, Annapurnaworld.entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-02 11:43:11.543 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetPackageShipmentDetails (Annapurnaworld.api) in 4593.1354ms
+2024-09-02 11:43:11.543 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.GetPackageShipmentDetails (Annapurnaworld.api)'
+2024-09-02 11:43:11.543 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/GetPackageShipmentDetails - 200 null application/json; charset=utf-8 4888.432ms
+2024-09-02 11:43:16.170 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - null null
+2024-09-02 11:43:16.171 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:16.172 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - 204 null null 2.8802ms
+2024-09-02 11:43:16.176 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - null null
+2024-09-02 11:43:16.177 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:43:16.196 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 11:43:16.200 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 11:43:16.201 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip (Annapurnaworld.api)'
+2024-09-02 11:43:16.207 +05:30 [INF] Route matched with {action = "DownloadZip", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DownloadZip(System.String, System.DateTime, System.DateTime) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 11:44:43.759 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip (Annapurnaworld.api) in 87551.2601ms
+2024-09-02 11:44:43.841 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip (Annapurnaworld.api)'
+2024-09-02 11:44:44.006 +05:30 [ERR] An unhandled exception occurred.
+System.InvalidOperationException: Error saving file C:\Users\hp\source\repos\Annapurnaworld.api\Annapurnaworld.api\Uploads
+ ---> System.UnauthorizedAccessException: Access to the path 'C:\Users\hp\source\repos\Annapurnaworld.api\Annapurnaworld.api\Uploads' is denied.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode)
+   at OfficeOpenXml.ExcelPackage.Save()
+   --- End of inner exception stack trace ---
+   at OfficeOpenXml.ExcelPackage.Save()
+   at OfficeOpenXml.ExcelPackage.SaveAs(FileInfo file)
+   at Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip(String fileType, DateTime fromDate, DateTime toDate)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Annapurnaworld.api.JwtMiddleware.InvokeAsync(HttpContext context, IUserService userService)
+   at Annapurnaworld.api.ApplicationExceptionHandlerMiddleware.InvokeAsync(HttpContext context)
+2024-09-02 11:44:44.016 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - 500 null application/json 87840.1454ms
+2024-09-02 11:45:49.836 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - null null
+2024-09-02 11:45:49.836 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:45:49.840 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - 204 null null 1.1909ms
+2024-09-02 11:45:49.842 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - null null
+2024-09-02 11:45:49.843 +05:30 [INF] CORS policy execution successful.
+2024-09-02 11:45:49.888 +05:30 [INF] Executed DbCommand (20ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 11:45:49.898 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 11:45:49.899 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip (Annapurnaworld.api)'
+2024-09-02 11:45:49.909 +05:30 [INF] Route matched with {action = "DownloadZip", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DownloadZip(System.String, System.DateTime, System.DateTime) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 11:46:24.590 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/index.html - null null
+2024-09-02 11:46:24.674 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/index.html - 200 null text/html;charset=utf-8 84.5062ms
+2024-09-02 11:46:24.717 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/_vs/browserLink - null null
+2024-09-02 11:46:24.728 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-02 11:46:24.729 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 0.7517ms
+2024-09-02 11:46:24.749 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.6674ms
+2024-09-02 11:46:24.915 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - null null
+2024-09-02 11:46:24.981 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 65.9088ms
+2024-09-02 12:00:39.595 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip (Annapurnaworld.api) in 889684.9407ms
+2024-09-02 12:00:39.764 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip (Annapurnaworld.api)'
+2024-09-02 12:00:40.139 +05:30 [ERR] An unhandled exception occurred.
+System.InvalidOperationException: Error saving file C:\Users\hp\source\repos\Annapurnaworld.api\Annapurnaworld.api\Uploads
+ ---> System.UnauthorizedAccessException: Access to the path 'C:\Users\hp\source\repos\Annapurnaworld.api\Annapurnaworld.api\Uploads' is denied.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode)
+   at OfficeOpenXml.ExcelPackage.Save()
+   --- End of inner exception stack trace ---
+   at OfficeOpenXml.ExcelPackage.Save()
+   at OfficeOpenXml.ExcelPackage.SaveAs(FileInfo file)
+   at Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip(String fileType, DateTime fromDate, DateTime toDate)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Annapurnaworld.api.JwtMiddleware.InvokeAsync(HttpContext context, IUserService userService)
+   at Annapurnaworld.api.ApplicationExceptionHandlerMiddleware.InvokeAsync(HttpContext context)
+2024-09-02 12:00:40.148 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - 500 null application/json 890305.0092ms
+2024-09-02 12:03:00.471 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - null null
+2024-09-02 12:03:00.474 +05:30 [INF] CORS policy execution successful.
+2024-09-02 12:03:00.474 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - 204 null null 5.5445ms
+2024-09-02 12:03:00.480 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - null null
+2024-09-02 12:03:00.482 +05:30 [INF] CORS policy execution successful.
+2024-09-02 12:03:00.588 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 12:03:00.593 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 12:03:00.595 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip (Annapurnaworld.api)'
+2024-09-02 12:03:00.605 +05:30 [INF] Route matched with {action = "DownloadZip", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DownloadZip(System.String, System.DateTime, System.DateTime) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 12:04:31.089 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip (Annapurnaworld.api) in 90481.1798ms
+2024-09-02 12:04:31.265 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip (Annapurnaworld.api)'
+2024-09-02 12:04:31.599 +05:30 [ERR] An unhandled exception occurred.
+System.InvalidOperationException: Error saving file C:\Users\hp\Downloads\files (13)\xl
+ ---> System.UnauthorizedAccessException: Access to the path 'C:\Users\hp\Downloads\files (13)\xl' is denied.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode)
+   at OfficeOpenXml.ExcelPackage.Save()
+   --- End of inner exception stack trace ---
+   at OfficeOpenXml.ExcelPackage.Save()
+   at OfficeOpenXml.ExcelPackage.SaveAs(FileInfo file)
+   at Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip(String fileType, DateTime fromDate, DateTime toDate)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Annapurnaworld.api.JwtMiddleware.InvokeAsync(HttpContext context, IUserService userService)
+   at Annapurnaworld.api.ApplicationExceptionHandlerMiddleware.InvokeAsync(HttpContext context)
+2024-09-02 12:04:31.646 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - 500 null application/json 91164.3584ms
+2024-09-02 12:12:15.915 +05:30 [WRN] No store type was specified for the decimal property 'ShipmentPrice' on entity type 'PackageShipmentDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-02 12:12:15.983 +05:30 [WRN] No store type was specified for the decimal property 'ShipmentWeight' on entity type 'PackageShipmentDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-02 12:12:16.978 +05:30 [INF] Executed DbCommand (49ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-09-02 12:12:17.242 +05:30 [INF] User profile is available. Using 'C:\Users\hp\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-02 12:12:17.547 +05:30 [INF] Now listening on: http://localhost:5047
+2024-09-02 12:12:17.633 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-02 12:12:17.634 +05:30 [INF] Hosting environment: Development
+2024-09-02 12:12:17.634 +05:30 [INF] Content root path: C:\Users\hp\source\repos\Annapurnaworld.api\Annapurnaworld.api
+2024-09-02 12:12:18.487 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/index.html - null null
+2024-09-02 12:12:18.821 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/index.html - 200 null text/html;charset=utf-8 355.5057ms
+2024-09-02 12:12:18.860 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/_vs/browserLink - null null
+2024-09-02 12:12:18.860 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-02 12:12:18.866 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 6.7728ms
+2024-09-02 12:12:18.930 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/_vs/browserLink - 200 null text/javascript; charset=UTF-8 70.6143ms
+2024-09-02 12:12:19.129 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - null null
+2024-09-02 12:12:19.342 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 213.2836ms
+2024-09-02 12:12:35.487 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - null null
+2024-09-02 12:12:35.497 +05:30 [INF] CORS policy execution successful.
+2024-09-02 12:12:35.502 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - 204 null null 14.8683ms
+2024-09-02 12:12:35.508 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - null null
+2024-09-02 12:12:35.508 +05:30 [INF] CORS policy execution successful.
+2024-09-02 12:12:36.337 +05:30 [INF] Executed DbCommand (155ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 12:12:36.555 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 12:12:36.625 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip (Annapurnaworld.api)'
+2024-09-02 12:12:36.683 +05:30 [INF] Route matched with {action = "DownloadZip", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DownloadZip(System.String, System.DateTime, System.DateTime) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
+2024-09-02 12:14:30.583 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/index.html - null null
+2024-09-02 12:14:30.873 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/index.html - 200 null text/html;charset=utf-8 369.9872ms
+2024-09-02 12:14:31.042 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/_vs/browserLink - null null
+2024-09-02 12:14:31.064 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-02 12:14:31.071 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 7.5598ms
+2024-09-02 12:14:31.164 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/_vs/browserLink - 200 null text/javascript; charset=UTF-8 121.6286ms
+2024-09-02 12:14:31.441 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - null null
+2024-09-02 12:14:31.549 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 108.0339ms
+2024-09-02 12:14:33.317 +05:30 [INF] Executed action Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip (Annapurnaworld.api) in 116623.0825ms
+2024-09-02 12:14:33.474 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - null null
+2024-09-02 12:14:33.476 +05:30 [INF] Executed endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip (Annapurnaworld.api)'
+2024-09-02 12:14:33.476 +05:30 [INF] CORS policy execution successful.
+2024-09-02 12:14:33.477 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - 204 null null 2.8077ms
+2024-09-02 12:14:33.870 +05:30 [ERR] An unhandled exception occurred.
+System.ArgumentException: Empty extension is not supported.
+   at ClosedXML.Excel.XLWorkbook.GetSpreadsheetDocumentType(String filePath)
+   at ClosedXML.Excel.XLWorkbook.SaveAs(String file, SaveOptions options)
+   at ClosedXML.Excel.XLWorkbook.SaveAs(String file, Boolean validate, Boolean evaluateFormulae)
+   at ClosedXML.Excel.XLWorkbook.SaveAs(String file)
+   at Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip(String fileType, DateTime fromDate, DateTime toDate)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Annapurnaworld.api.JwtMiddleware.InvokeAsync(HttpContext context, IUserService userService)
+   at Annapurnaworld.api.ApplicationExceptionHandlerMiddleware.InvokeAsync(HttpContext context)
+2024-09-02 12:14:33.930 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - null null
+2024-09-02 12:14:33.930 +05:30 [INF] CORS policy execution successful.
+2024-09-02 12:14:33.948 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5047/api/courierDeliveryhubs/download-zip?fileType=test&&fromDate=2024-07-10&&toDate=2024-09-14 - 400 null application/json 118440.0795ms
+2024-09-02 12:14:34.097 +05:30 [INF] Executed DbCommand (25ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='1200']
+SELECT [t].[Id], [t].[CreateById], [t].[CreatedDate], [t].[Email], [t].[FullName], [t].[IsActive], [t].[Password], [t].[RefreshToken], [t].[UpdatedById], [t].[UpdatedDate], [u0].[UserId], [u0].[RoleId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[CreateById], [u].[CreatedDate], [u].[Email], [u].[FullName], [u].[IsActive], [u].[Password], [u].[RefreshToken], [u].[UpdatedById], [u].[UpdatedDate]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [UserRoles] AS [u0] ON [t].[Id] = [u0].[UserId]
+ORDER BY [t].[Id], [u0].[UserId]
+2024-09-02 12:14:34.113 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='1200']
+SELECT [r].[Id], [r].[Name]
+FROM [Roles] AS [r]
+2024-09-02 12:14:34.118 +05:30 [INF] Executing endpoint 'Annapurnaworld.api.Controllers.CourierDeliveryHubController.DownloadZip (Annapurnaworld.api)'
+2024-09-02 12:14:34.131 +05:30 [INF] Route matched with {action = "DownloadZip", controller = "CourierDeliveryHub"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DownloadZip(System.String, System.DateTime, System.DateTime) on controller Annapurnaworld.api.Controllers.CourierDeliveryHubController (Annapurnaworld.api).
